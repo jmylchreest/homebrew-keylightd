@@ -5,13 +5,13 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.12"
+  version "0.0.13"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.12/keylightd_0.0.12_darwin_amd64.tar.gz"
-      sha256 "b109d2eaf60eb3009192d1993454a5ed4b28891dd695b054343bee17df05cc58"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.13/keylightd_0.0.13_darwin_amd64.tar.gz"
+      sha256 "61a93477941512b763d080efab8a4d16386499476c0c79a73b58c2819b2c9750"
 
       def install
         bin.install "keylightd"
@@ -19,8 +19,8 @@ class Keylightd < Formula
 
         # Install systemd service file for Linux users
         if OS.linux?
-          (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "keylightd.service"
+          (prefix/"etc/systemd/user").mkpath
+          (prefix/"etc/systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
@@ -29,8 +29,8 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.12/keylightd_0.0.12_darwin_arm64.tar.gz"
-      sha256 "23a4175be1fc7e62a4057cefd0d5e2501eb49587f26e63d614ab56a829822078"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.13/keylightd_0.0.13_darwin_arm64.tar.gz"
+      sha256 "22afcbfd51da559ae6f5b0da1d4db676ab3057c8ee3970957ea47e0b0c239c78"
 
       def install
         bin.install "keylightd"
@@ -38,8 +38,8 @@ class Keylightd < Formula
 
         # Install systemd service file for Linux users
         if OS.linux?
-          (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "keylightd.service"
+          (prefix/"etc/systemd/user").mkpath
+          (prefix/"etc/systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
@@ -51,16 +51,16 @@ class Keylightd < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.12/keylightd_0.0.12_linux_amd64.tar.gz"
-      sha256 "0fca912c82d99e286cc7434a3727321d737750bd2092f405c61cd384c391dea6"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.13/keylightd_0.0.13_linux_amd64.tar.gz"
+      sha256 "f64066e2a1427b34ea91453cb67a76a73176d93d9902314c48216161ba033017"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
 
         # Install systemd service file for Linux users
         if OS.linux?
-          (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "keylightd.service"
+          (prefix/"etc/systemd/user").mkpath
+          (prefix/"etc/systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
@@ -69,16 +69,16 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.12/keylightd_0.0.12_linux_arm64.tar.gz"
-      sha256 "afacbfae969947f40fc451fed3668a9bb11ff514094f5e08b0b0199e9c3cf718"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.13/keylightd_0.0.13_linux_arm64.tar.gz"
+      sha256 "2c051dd5494ae1271693aedfe76ec7c8c1688e4298d8dd8416558873c42014d0"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
 
         # Install systemd service file for Linux users
         if OS.linux?
-          (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "keylightd.service"
+          (prefix/"etc/systemd/user").mkpath
+          (prefix/"etc/systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
