@@ -5,47 +5,116 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.6"
+  version "0.0.7"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.6/keylightd_0.0.6_darwin_amd64.tar.gz"
-      sha256 "3d92519474cbed26d844906fa2368731e5a8617ea2a849b122efa43b0261a6dd"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.7/keylightd_0.0.7_darwin_amd64.tar.gz"
+      sha256 "1143fbe959e5bce870d1c3010db50646bc282c38ff209672899ffa360a747726"
 
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
+
+        # Install systemd service file for Linux users
+        if OS.linux?
+          (etc/"systemd/user").mkpath
+          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+        end
+
+        # Make service file available on all platforms for reference
+        (share/"keylightd").mkpath
+        (share/"keylightd").install "contrib/systemd/keylightd.service"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.6/keylightd_0.0.6_darwin_arm64.tar.gz"
-      sha256 "d870670011123129479d61f6d5076899b1bdffc0cfb61f8ecd9ce3428caa038e"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.7/keylightd_0.0.7_darwin_arm64.tar.gz"
+      sha256 "904384d2cc0a0acf72ae83c9f38fdb57b2d67cd8c31f10342ff1caace130a983"
 
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
+
+        # Install systemd service file for Linux users
+        if OS.linux?
+          (etc/"systemd/user").mkpath
+          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+        end
+
+        # Make service file available on all platforms for reference
+        (share/"keylightd").mkpath
+        (share/"keylightd").install "contrib/systemd/keylightd.service"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.6/keylightd_0.0.6_linux_amd64.tar.gz"
-      sha256 "9c02b55352b2dfd40a42f400f321bb795ecd665efc4ea06616229aacf0493358"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.7/keylightd_0.0.7_linux_amd64.tar.gz"
+      sha256 "53f2f3e6598a188a03ef3dcab7ef75d17e9e8821756482dd7a36ff83ecf5ab59"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
+
+        # Install systemd service file for Linux users
+        if OS.linux?
+          (etc/"systemd/user").mkpath
+          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+        end
+
+        # Make service file available on all platforms for reference
+        (share/"keylightd").mkpath
+        (share/"keylightd").install "contrib/systemd/keylightd.service"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.6/keylightd_0.0.6_linux_arm64.tar.gz"
-      sha256 "200ce96a8b7e5f97dc4fa78dac2f06d88e11031fdafb49561e2d5682393aa443"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.7/keylightd_0.0.7_linux_arm64.tar.gz"
+      sha256 "0826dc6da6171b522abae55a714c8dd84c7ebbcabe36b7992505757632e8e96d"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
+
+        # Install systemd service file for Linux users
+        if OS.linux?
+          (etc/"systemd/user").mkpath
+          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+        end
+
+        # Make service file available on all platforms for reference
+        (share/"keylightd").mkpath
+        (share/"keylightd").install "contrib/systemd/keylightd.service"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      keylightd daemon has been installed!
+
+      To start keylightd manually:
+        keylightd
+
+      To start automatically on boot:
+
+      On Linux with systemd:
+        systemctl --user enable keylightd
+        systemctl --user start keylightd
+
+        Service file installed to: #{HOMEBREW_PREFIX}/etc/systemd/user/keylightd.service
+
+      On macOS (using launchd):
+        # Manual background start:
+        keylightd &
+
+        # Or create your own launchd plist in ~/Library/LaunchAgents/
+
+      Once started, control your lights with:
+        keylightctl light list
+        keylightctl --help
+
+      Configuration will be created at: ~/.config/keylight/
+    EOS
   end
 
   test do
