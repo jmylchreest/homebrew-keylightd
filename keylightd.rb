@@ -5,13 +5,13 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.10"
+  version "0.0.11"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.10/keylightd_0.0.10_darwin_amd64.tar.gz"
-      sha256 "75301fdfa0973069096ccf6314ff93072358ceae890dc2cf9c4569d0bb96fcf4"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.11/keylightd_0.0.11_darwin_amd64.tar.gz"
+      sha256 "ea884e2cb85d0b04b78e3891546ea8ababb0f6d9fa821d945187a6c2dbc8d764"
 
       def install
         bin.install "keylightd"
@@ -20,17 +20,17 @@ class Keylightd < Formula
         # Install systemd service file for Linux users
         if OS.linux?
           (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+          (etc/"systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
         (share/"keylightd").mkpath
-        (share/"keylightd").install "contrib/systemd/keylightd.service"
+        (share/"keylightd").install "keylightd.service"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.10/keylightd_0.0.10_darwin_arm64.tar.gz"
-      sha256 "77cb57946ca991c97267369a406723b4059d16da75b45de99ff3d81865caedc6"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.11/keylightd_0.0.11_darwin_arm64.tar.gz"
+      sha256 "e030b12e4fe4216c88aa003c4a4e3e632812e22db37ab051ff2236043ed577f1"
 
       def install
         bin.install "keylightd"
@@ -39,20 +39,20 @@ class Keylightd < Formula
         # Install systemd service file for Linux users
         if OS.linux?
           (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+          (etc/"systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
         (share/"keylightd").mkpath
-        (share/"keylightd").install "contrib/systemd/keylightd.service"
+        (share/"keylightd").install "keylightd.service"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.10/keylightd_0.0.10_linux_amd64.tar.gz"
-      sha256 "68a76f94b4e6c4072377bb9d6b779c475dd553fcf085807a0c306695d7c917ad"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.11/keylightd_0.0.11_linux_amd64.tar.gz"
+      sha256 "181857451d8504f7cca105a791453469db5954217a0cb40721c064ff5c098a39"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
@@ -60,17 +60,17 @@ class Keylightd < Formula
         # Install systemd service file for Linux users
         if OS.linux?
           (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+          (etc/"systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
         (share/"keylightd").mkpath
-        (share/"keylightd").install "contrib/systemd/keylightd.service"
+        (share/"keylightd").install "keylightd.service"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.10/keylightd_0.0.10_linux_arm64.tar.gz"
-      sha256 "a1500b2b84f5b4f83d4dabee058f06af74b9a938abe3b0b3af24ce0041404aac"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.11/keylightd_0.0.11_linux_arm64.tar.gz"
+      sha256 "f29bfab15ecacc8695a1502d3677048d69a627879e7665cb9673f70012a87723"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
@@ -78,12 +78,12 @@ class Keylightd < Formula
         # Install systemd service file for Linux users
         if OS.linux?
           (etc/"systemd/user").mkpath
-          (etc/"systemd/user").install "contrib/systemd/keylightd.service"
+          (etc/"systemd/user").install "keylightd.service"
         end
 
         # Make service file available on all platforms for reference
         (share/"keylightd").mkpath
-        (share/"keylightd").install "contrib/systemd/keylightd.service"
+        (share/"keylightd").install "keylightd.service"
       end
     end
   end
