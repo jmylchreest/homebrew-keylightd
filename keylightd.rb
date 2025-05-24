@@ -5,15 +5,19 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.8"
+  version "0.0.9"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.8/keylightd_0.0.8_darwin_amd64.tar.gz"
-      sha256 "553fcd2bf8f17f08a532936ba9c3c6b4a53ca4b04e27103d230a52bb6e170668"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.9/keylightd_0.0.9_darwin_amd64.tar.gz"
+      sha256 "4e38747ec71a65942117f3ef1400c26bc9c2fa3407af02f615beba6e8d44a8f7"
 
       def install
+        # Debug: see what files are actually present
+        system "find", ".", "-name", "*.service"
+        system "ls", "-la"
+
         bin.install "keylightd"
         bin.install "keylightctl"
 
@@ -29,10 +33,14 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.8/keylightd_0.0.8_darwin_arm64.tar.gz"
-      sha256 "2afe8004e399e4adfa37cb2788ad0fe460526abec04f6d3e23690db57c37b151"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.9/keylightd_0.0.9_darwin_arm64.tar.gz"
+      sha256 "f2a7c85d7b395feaa04ca0b6a660c55ae4cda70f875ff7144a798dcf26ca95e5"
 
       def install
+        # Debug: see what files are actually present
+        system "find", ".", "-name", "*.service"
+        system "ls", "-la"
+
         bin.install "keylightd"
         bin.install "keylightctl"
 
@@ -51,9 +59,13 @@ class Keylightd < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.8/keylightd_0.0.8_linux_amd64.tar.gz"
-      sha256 "b02fa6441cf7aeffaf6be60ea268baf363df6b6fb1128b41f3c835e81c72d70e"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.9/keylightd_0.0.9_linux_amd64.tar.gz"
+      sha256 "fb17f4244e181c5e67e9b2bd42a2368db8e7ef8a9acce25d0f503bf6bccea1ab"
       def install
+        # Debug: see what files are actually present
+        system "find", ".", "-name", "*.service"
+        system "ls", "-la"
+
         bin.install "keylightd"
         bin.install "keylightctl"
 
@@ -69,9 +81,13 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.8/keylightd_0.0.8_linux_arm64.tar.gz"
-      sha256 "1cc88f7120218a9e5d8c753e52ad67ce2830e2e85e85e20b0c0c790270140b19"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.9/keylightd_0.0.9_linux_arm64.tar.gz"
+      sha256 "05ff21692dc98c59925b446d9d235d5c75656a071912b6aca72a3a14311c8737"
       def install
+        # Debug: see what files are actually present
+        system "find", ".", "-name", "*.service"
+        system "ls", "-la"
+
         bin.install "keylightd"
         bin.install "keylightctl"
 
