@@ -5,77 +5,45 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.14"
+  version "0.0.15"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.14/keylightd_0.0.14_darwin_amd64.tar.gz"
-      sha256 "6ababb3bf4db579699f890a813347a65646a2b9bbce874bc457d60eefd839574"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.15/keylightd_0.0.15_darwin_amd64.tar.gz"
+      sha256 "f42834d6f11f83528fe14a957298066ca76c921babd025f9b9e44ecf9b34540a"
 
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
-
-        service do
-          run bin/"keylightd"
-          keep_alive true
-          restart_delay 5
-          process_type background
-          run_type :immediate
-        end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.14/keylightd_0.0.14_darwin_arm64.tar.gz"
-      sha256 "fc844e621f9e9dc8cd1772b3e0d74d73abf3ec0944c837023f285d9f71d0c403"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.15/keylightd_0.0.15_darwin_arm64.tar.gz"
+      sha256 "bce2e97de09c8fcb1ecdcac7b2a62612fe3f5681d7939613e36a695b56ecafbc"
 
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
-
-        service do
-          run bin/"keylightd"
-          keep_alive true
-          restart_delay 5
-          process_type background
-          run_type :immediate
-        end
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.14/keylightd_0.0.14_linux_amd64.tar.gz"
-      sha256 "730afb3444ec39da3e1db217f1d1c07f63effd2850b9272e1564c2c6e755921e"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.15/keylightd_0.0.15_linux_amd64.tar.gz"
+      sha256 "77a2bc4c90d95c6816eeaf1b5535b849f11265a09d0bbe33d044c850c1a0f9cd"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
-
-        service do
-          run bin/"keylightd"
-          keep_alive true
-          restart_delay 5
-          process_type background
-          run_type :immediate
-        end
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.14/keylightd_0.0.14_linux_arm64.tar.gz"
-      sha256 "2fd1c19a103a82fe700383a0a8e78f8042efd7b4cfc030aef2086f7024ebf84a"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.15/keylightd_0.0.15_linux_arm64.tar.gz"
+      sha256 "5dc3ae93044191c5b488e4f178f136e045cd0081138bd99e6157024c5e5d21ea"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
-
-        service do
-          run bin/"keylightd"
-          keep_alive true
-          restart_delay 5
-          process_type background
-          run_type :immediate
-        end
       end
     end
   end
@@ -87,18 +55,35 @@ class Keylightd < Formula
       To start keylightd manually:
         keylightd
 
-      To start automatically on boot:
+      To start automatically with Homebrew services:
+        brew services start keylightd
 
-      On Linux with systemd:
-        systemctl --user enable keylightd
-        systemctl --user start keylightd
+      To stop the service:
+        brew services stop keylightd
+
+      To restart the service:
+        brew services restart keylightd
+
+      To check service status:
+        brew services list | grep keylightd
 
       Once started, control your lights with:
         keylightctl light list
         keylightctl --help
 
       Configuration will be created at: ~/.config/keylight/
+      Service logs will be written to: $(brew --prefix)/var/log/keylightd.log
     EOS
+  end
+
+  service do
+    run bin/"keylightd"
+    keep_alive true
+    restart_delay 5
+    process_type :background
+    run_type :immediate
+    log_path var/"log/keylightd.log"
+    error_log_path var/"log/keylightd.log"
   end
 
   test do
