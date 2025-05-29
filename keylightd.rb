@@ -5,13 +5,13 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.16"
+  version "0.0.17"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.16/keylightd_0.0.16_darwin_amd64.tar.gz"
-      sha256 "ffa0cf8db9b9a32de2ba45f59988352a96370a537cab7c7f67144603ff193f67"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.17/keylightd_0.0.17_darwin_amd64.tar.gz"
+      sha256 "07473fc013a2f631acfb663f48e91d5162734c468d44ff213c3f0560ae520b29"
 
       def install
         bin.install "keylightd"
@@ -19,8 +19,8 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.16/keylightd_0.0.16_darwin_arm64.tar.gz"
-      sha256 "b501fae5f07f7b60c6a7c0bee9d2c82686b0a94f7c9a6592187e5f288b783681"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.17/keylightd_0.0.17_darwin_arm64.tar.gz"
+      sha256 "ca5369991856b0fa81b8b3ccf77ec725d8189aa5df76b544e5a2f8d8a9d433c7"
 
       def install
         bin.install "keylightd"
@@ -31,16 +31,16 @@ class Keylightd < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.16/keylightd_0.0.16_linux_amd64.tar.gz"
-      sha256 "6ced45eebe1900b5135186b225cdd460a2244582169639e40f7ac697ed374719"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.17/keylightd_0.0.17_linux_amd64.tar.gz"
+      sha256 "0a65e72738147d412b636585df407bbccbc2db43f0b5d131d4fcfd85d2723c5d"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.16/keylightd_0.0.16_linux_arm64.tar.gz"
-      sha256 "4501d57a17d59a913d1ba0b1d3ea99ff6dab9b441a7a885ae99aeb5ff3a48492"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.17/keylightd_0.0.17_linux_arm64.tar.gz"
+      sha256 "d5eb7ce10fa1bd2aa92e09770541d24139246d60f4d7ca79c7ee7728f81f227d"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
