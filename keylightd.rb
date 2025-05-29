@@ -5,13 +5,13 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing Elgato Key Lights on your local network"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.18"
+  version "0.0.19"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.18/keylightd_0.0.18_darwin_amd64.tar.gz"
-      sha256 "f15895dc08ddc6083f6b9bad11a3f3b5ba32c5d5fe2287e5cf82084153792408"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.19/keylightd_0.0.19_darwin_amd64.tar.gz"
+      sha256 "215927c52d52e712ecf8b5461e603f35d42647a192c445f636b18bb91df15584"
 
       def install
         bin.install "keylightd"
@@ -19,8 +19,8 @@ class Keylightd < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.18/keylightd_0.0.18_darwin_arm64.tar.gz"
-      sha256 "bdd8f51ae6a30fa2b174d9f4dc8de42d643524427e8d8c8f5e1e009861043922"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.19/keylightd_0.0.19_darwin_arm64.tar.gz"
+      sha256 "c45347e02f8eec1512f2c8e6b3b0e371240d91b56d732562def1cb2ec97b715b"
 
       def install
         bin.install "keylightd"
@@ -31,16 +31,16 @@ class Keylightd < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.18/keylightd_0.0.18_linux_amd64.tar.gz"
-      sha256 "d82f3e4fd8c5257a7cba749e2159140e1d6ecfb7e3bb71b8892871349b7456cf"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.19/keylightd_0.0.19_linux_amd64.tar.gz"
+      sha256 "36e152080fbbe0b897b916371021021f0ef48cf9c1461a2cb77a4eabbfb17355"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.18/keylightd_0.0.18_linux_arm64.tar.gz"
-      sha256 "7f1a98884c3369b99a463bb4e2245d1653dab34605ad46903bb6e05d4518d19e"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.19/keylightd_0.0.19_linux_arm64.tar.gz"
+      sha256 "9a0b2a4a77e75cfca7a1b2f325b21fd8ac7d3e5f1a2d6ededbdfd9f3e23d9629"
       def install
         bin.install "keylightd"
         bin.install "keylightctl"
@@ -71,7 +71,7 @@ class Keylightd < Formula
         keylightctl light list
         keylightctl --help
 
-      Configuration will be created at: ~/.config/keylight/
+      Configuration will be created at: ~/.config/keylightd/
       Service logs will be written to: $(brew --prefix)/var/log/keylightd.log
     EOS
   end
