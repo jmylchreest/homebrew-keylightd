@@ -4,47 +4,47 @@
 class Keylightd < Formula
   desc "Daemon and CLI tool for managing HTTP-based Key Lights, including Elgato models"
   homepage "https://github.com/jmylchreest/keylightd"
-  version "0.0.44"
+  version "0.0.45"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_darwin_amd64.tar.gz"
-      sha256 "d815782a94e85985be2654f94fbf4c65b01358c7aad2bcd345be53581fc568e0"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_darwin_amd64.tar.gz"
+      sha256 "740894bca1a68957f2372934049bdb49572b8d26b8b5813c70de8393be4e169c"
 
       resource "sbom" do
-        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_darwin_amd64_sbom.spdx.json"
-        sha256 "fd1e5a9bacc8ee3e87a6ed4fafd1654d2c181721987e22d7c2278337ccf0818a"
+        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_darwin_amd64_sbom.spdx.json"
+        sha256 "caf41a5beda0ef139f63d2a60b775225e604a863eb4e6cdc7b53d9cc25684999"
       end
     end
     on_arm do
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_darwin_arm64.tar.gz"
-      sha256 "c85c8fb592c547d3c236686a0721903ec8bb9913f69d9bdcfcc1e4b4dc3a2ad0"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_darwin_arm64.tar.gz"
+      sha256 "4463ae2fbd37bf215e38974825c2be592945ad92e25835de579c82ed6d57d290"
 
       resource "sbom" do
-        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_darwin_arm64_sbom.spdx.json"
-        sha256 "db074fcbfa2ce2e9eb01cbe15a4fb6ba84cdaaf6e771199281a8213c1f65be39"
+        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_darwin_arm64_sbom.spdx.json"
+        sha256 "18a6bbc54af8a3e66100714000cb758d5dea7d3b038b7fc1ac407f65736d7d91"
       end
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_linux_amd64.tar.gz"
-      sha256 "3cb22d4f93cdfe20ce77d4e3fe7e9c0db07ae65441c990b1818c2d0b3949437e"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_linux_amd64.tar.gz"
+      sha256 "722229df740daa178a0e1047ce0ed09882a8f0e8cc3acd924fc15d6c0d4ba7b1"
 
       resource "sbom" do
-        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_linux_amd64_sbom.spdx.json"
-        sha256 "fa60e11f0995624e991b33280695895e674340ac7cdad6cb5788f0410a407724"
+        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_linux_amd64_sbom.spdx.json"
+        sha256 "04f310e30f70dcd962c37fa6f78b1233fe401c162e4aa49b63721861c23430de"
       end
     end
     on_arm do
-      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_linux_arm64.tar.gz"
-      sha256 "f757f91a70917a75b5892cc29fb89bde36bf665e494249bd2ce8b47907e47b92"
+      url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_linux_arm64.tar.gz"
+      sha256 "94e08f975ea6f469ea93c8d69eaec99a16b7d71cd1578b7f95ba4147291d5727"
 
       resource "sbom" do
-        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.44/keylightd_0.0.44_linux_arm64_sbom.spdx.json"
-        sha256 "fbf50b00c4ef18eaca25a540899f3eb78625f766d026f07bdf4b911b5316715f"
+        url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.45/keylightd_0.0.45_linux_arm64_sbom.spdx.json"
+        sha256 "dc3a7606d8b8867944e99555e67f2ad97ec50c2b3b5d946f3d02eb0698a69348"
       end
     end
   end
