@@ -9,31 +9,31 @@ class KeylightdTray < Formula
 
   on_macos do
     url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_darwin_universal.tar.gz"
-    sha256 "0088bc56b4e9c74976783abe23977b5a006e9fcf55fcdd3bb1d89d1162d6136e"
+    sha256 "e65152103b5ac92c3ef3c0c4af050d2911f91efacd347f50c532dd91f8494cf7"
 
     resource "sbom" do
       url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_darwin_universal_sbom.spdx.json"
-      sha256 "5c97c2f94904dcc9de648da142cf8bce6a0f7a7a2594773a043522f1651d7e4d"
+      sha256 "679c2b7a885dc6ad3d6c6fd3f017d3892b17abb556bcbfa432a2f814b182aeaf"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_linux_amd64.tar.gz"
-      sha256 "d05ff1f2d785e83476716e2eb00b818239ed76a6380fd27f8be9ace1e475c4ca"
+      sha256 "60c1cce1a611e0bf7612eac1528942997672be2d056bbcc9b0d6d14ae2e679a8"
 
       resource "sbom" do
         url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_linux_amd64_sbom.spdx.json"
-        sha256 "efc98cc001607ade10c6eb022ae316e9f9e1c5e600532e39f85b361eddd1374f"
+        sha256 "9abd83ca497e46281137954a7fde69ec8d4bc0de4c9c5a2f36fbf80fd2637a6b"
       end
     end
     on_arm do
       url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_linux_arm64.tar.gz"
-      sha256 "b19885059f7d44776aa03f6767bce7ae90068786e89b15755d24cc180b29571a"
+      sha256 "3495b102919957d3ca5df38dd83c444e10d627307508e64a2221f44fb87a1f89"
 
       resource "sbom" do
         url "https://github.com/jmylchreest/keylightd/releases/download/v0.0.48/keylightd-tray_0.0.48_linux_arm64_sbom.spdx.json"
-        sha256 "6ee877354561ee122a0bfee260fe943a702f7f15d9c6294ab1010af45cb9f09c"
+        sha256 "2966eefe400cfbfb5328a0b0f534e12cf8fb11aaf2c419754728169c2d1f1fe7"
       end
     end
   end
